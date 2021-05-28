@@ -14,7 +14,6 @@ public class FacebookLoginTest{
 
         @Test
         public void login () {
-           DriverManeger.getDriver();
            facebookLoginPage = new FacebookLoginPage(driver);
            facebookLoginPage.typeEmailOrTelefone();
            facebookLoginPage.typePassword();
@@ -23,22 +22,22 @@ public class FacebookLoginTest{
 
         }
 
-    @Test
-    public void clicarEsqueceuAConta () {
-        DriverManeger.getDriver();
-        facebookLoginPage = new FacebookLoginPage(driver);
-        facebookLoginPage.clickEsqueceuAContaLinkBtn();
-        DriverManeger.endSession();
+        @Test
+        public void clicarEsqueceuAConta () {
+            DriverManeger.getDriver();
+            facebookLoginPage = new FacebookLoginPage(driver);
+            facebookLoginPage.clickEsqueceuAContaLinkBtn();
+            DriverManeger.endSession();
 
-    }
+        }
 
-    @Test
-    public void clicarCriarUmaNovaConta () {
-        DriverManeger.getDriver();
-        facebookLoginPage = new FacebookLoginPage(driver);
-        facebookLoginPage.clickCriarUmaNovaContaBtn();
-        DriverManeger.endSession();
+        @Test
+        public void clicarCriarUmaNovaConta () {
+            DriverManeger.getDriver();
+            facebookLoginPage = new FacebookLoginPage(driver);
+            facebookLoginPage.clickCriarUmaNovaContaBtn();
+            DriverManeger.endSession();
 
-    }
+        }
 
 }
