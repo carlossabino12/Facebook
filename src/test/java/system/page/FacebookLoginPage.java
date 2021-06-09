@@ -2,50 +2,38 @@ package system.page;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import system.setup.DriverManeger;
 
-public class FacebookLoginPage{
+public class FacebookLoginPage extends Base {
 
-    private WebDriver driver;
-
-    private By facebookTitleLoginPage = By.cssSelector("#globalContainer > div > div > div > img[alt='Facebook']");
-    private By entrarNoFacebookText = By.xpath("//div[text()='Entrar no Facebook']");
-    private By esqueceuAContaLinkbtn = By.linkText("Esqueceu a conta?");
-    private By outext = By.className("._1rf8");
-    private By criarUmaNovaContaBtn = By.cssSelector("#login_link > div:nth-child(3) > a");
-    private By mostrarSenha = By.id("u_0_c_Xw");
     private By emailOrTelefone = By.id("email");
     private By password = By.id("pass");
-    private By enterBtn = By.id("loginbutton");
+    private By enterBtn = By.xpath("//button[@type='submit']");
+    private By userNameTopBar = By.cssSelector("div[aria-label ='Configurações e controles da conta'] > div:last-child > a > span");
 
     public FacebookLoginPage(WebDriver driver){
-        this.driver = DriverManeger.getDriver();
+        super(driver);
 
     }
 
     public void typeEmailOrTelefone(){
-        driver.findElement(emailOrTelefone).sendKeys("dudu");
 
+        type("dudu",emailOrTelefone);
     }
     public void typePassword(){
-        driver.findElement(password).sendKeys("dudu");
-
+        type("dudu",password);
     }
     public void clickEnterBtn(){
-        driver.findElement(enterBtn).click();
+
+        click(enterBtn);
+    }
+    public void userLogin(){
+        type("dudu",emailOrTelefone);
+        type("dudu",password);
+        click(enterBtn);
     }
 
-    public void clickEsqueceuAContaLinkBtn(){
-        driver.findElement(esqueceuAContaLinkbtn).click();
-    }
+    public String usuarioNameTopBar(){
+        return chromeDriverConnection().findElement(userNameTopBar).getText();
 
-    public void clickCriarUmaNovaContaBtn(){
-        driver.findElement(criarUmaNovaContaBtn).click();
-    }
-
-    public void login(){
-        driver.findElement(emailOrTelefone).sendKeys("dudu");
-        driver.findElement(password).sendKeys("dudu");
-        driver.findElement(enterBtn).click();
     }
 }
